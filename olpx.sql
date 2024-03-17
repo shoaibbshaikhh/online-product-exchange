@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2024 at 03:33 PM
+-- Generation Time: Mar 17, 2024 at 06:47 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,7 +28,6 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -37,9 +36,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'password'),
-(2, 'admin', 'password');
+INSERT INTO `admin` (`username`, `password`) VALUES
+('admin', 'password');
 
 -- --------------------------------------------------------
 
@@ -49,9 +47,9 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `product_name` varchar(255) DEFAULT NULL,
-  `price` varchar(20) DEFAULT NULL,
-  `username` varchar(20) DEFAULT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `price` varchar(20) NOT NULL,
+  `username` varchar(20) NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -60,7 +58,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `product_name`, `price`, `username`, `order_date`) VALUES
-(2, 'Camera', '90000', 'harsh', '2024-03-16 14:23:06');
+(5, 'Farnicher', '50000', 'sk', '2024-03-17 05:39:34');
 
 -- --------------------------------------------------------
 
@@ -70,7 +68,7 @@ INSERT INTO `orders` (`id`, `product_name`, `price`, `username`, `order_date`) V
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL,
+  `name` varchar(25) NOT NULL,
   `rate` varchar(20) NOT NULL,
   `description` text NOT NULL,
   `image` varchar(20) NOT NULL,
@@ -83,7 +81,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `rate`, `description`, `image`, `username`, `seller_contact`) VALUES
-(1, 'Camera', '90000', 'Best Quality Camera', 'c.jpg', 'harsh', '7887612214');
+(2, 'Farnicher', '50000', 'Wooden Farnicher', 'f.jpg', 'sk', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -92,7 +90,6 @@ INSERT INTO `products` (`id`, `name`, `rate`, `description`, `image`, `username`
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -101,9 +98,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'sk', 'sk@123'),
-(2, 'harsh', 'Harsh@5');
+INSERT INTO `users` (`username`, `password`) VALUES
+('harsh', 'kotkar'),
+('saurabh', 'muthe'),
+('sk', 'sk');
 
 --
 -- Indexes for dumped tables
@@ -113,7 +111,7 @@ INSERT INTO `users` (`id`, `username`, `password`) VALUES
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `orders`
@@ -131,34 +129,22 @@ ALTER TABLE `products`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 

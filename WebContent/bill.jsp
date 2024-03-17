@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %> 
 <!DOCTYPE html>
 <html>
@@ -50,7 +49,7 @@
 			try {
 				// Load the driver class
 				Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/olpx","root","");
+    			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/olpx","root","");
 
 				// Retrieve the order from the orders table
 				Statement stmt = con.createStatement();
@@ -76,6 +75,16 @@
 			}
 		%>
 	</table>
-	<button>Pay</button>
+	<button id="payButton">Pay</button>
+
+	<script>
+		document.getElementById("payButton").addEventListener("click", function() {
+			var confirmation = confirm("Are you sure you want to place the order?");
+			if (confirmation) {
+				alert("Your order has been placed successfully!");
+				// Redirect to a success page or perform any other action
+			}
+		});
+	</script>
 </body>
 </html>

@@ -148,6 +148,6 @@
 			
 		} catch(Exception e) {
 			e.printStackTrace();
-			out.println("<h2>An error occurred while processing your order.</h2>"+e);
+			
 		}
 	%>
