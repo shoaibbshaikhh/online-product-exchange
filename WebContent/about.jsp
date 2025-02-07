@@ -226,7 +226,7 @@
     <div class="col-md-6">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <h3 class="mb-0">Saurabh Muthe</h3>
+          <h3 class="mb-0">Shoaib Shaikh</h3>
           <div class="mb-1 text-body-secondary">Frontend Developer</div>
           <p class="card-text mb-auto">A developer who is skilled to some degree at HTML, CSS, and JavaScript and implementing these technologies on the web platform</p>
         </div>
